@@ -1,0 +1,76 @@
+<% include partials/_header %>
+<style>body{background: #fafafa  !important; }</style>
+
+
+<div class="container">
+
+  <div class="row">
+    <!--FORM-->
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <form action="/add" method="post">
+            <div class="form-group">
+              <input class="form-control" type="number" name="PlanHoras" placeholder="PlanHoras">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="number" name="RealHoras" placeholder="RealHoras">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="date" name="fecha" placeholder="fecha">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="number" name="Porcentaje" placeholder="Porcentaje">
+            </div>
+            <button class="btn btn-info offset-md-4" type="submit">
+              Guardar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- LIST -->
+    <div class="col-md-7">
+      <table class="table table-striped">
+        <thead>
+          <tr>    
+            <th>N</th>        
+            <th>Plan (Horas)</th>
+            <th>Real (Horas)</th>
+            <th>A la fecha (dia)</th>
+            <th>Porcentaje</th>
+            <th>Operation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i=0; i < tasks.length; i++) { %>
+            <tr>
+              <td><%= i + 1%></td>
+              <td><%= tasks[i].PlanHoras %></td>
+              <td><%= tasks[i].RealHoras %></td>
+              <td><%= tasks[i].fecha %></td>
+              <td><%= tasks[i].Porcentaje %></td>
+               <!--<td><strong><%= tasks[i].Porcentaje %></strong></td>-->
+              <td>
+                <a
+                  class="<%= tasks[i].status ? 'btn btn-success' : 'btn btn-success'%>"
+                  href="/turn/<%= tasks[i]._id %>">Listo</a>
+                <a href="/delete/<%= tasks[i]._id %>"
+                  class="btn btn-danger">
+                  Borrar
+                </a>
+                <a href="/edit/<%= tasks[i]._id %>" class="btn btn-info">
+                  Editar
+                </a>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+</div>
