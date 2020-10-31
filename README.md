@@ -1,3 +1,3 @@
-# CRUD with Nodejs, Express and Mongodb
+# Nodejs, Express and Mongodb
 ![](docs/screenshot.png)
 
