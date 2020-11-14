@@ -4,22 +4,151 @@
 <div class="container">
   <div class="row">
     <!--FORM-->
-    <div class="col-md-5 offset-md-3">
+    <div class="col-md offset-md">
       <div class="card">
         <div class="card-body">
           <form action="/edit/<%= task._id %>" method="post">
             <div class="form-group">
-              <input class="form-control" type="number" name="PlanHoras" placeholder="PlanHoras">
-            </div>
-            <div class="form-group">
-              <input class="form-control" type="number" name="RealHoras" placeholder="RealHoras">
-            </div>
-            <div class="form-group">
-              <input class="form-control" type="date" name="fecha" placeholder="fecha">
-            </div>
-            <div class="form-group">
-              <input class="form-control" type="number" name="Porcentaje" placeholder="Porcentaje">
-            </div>
+              
+              
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Tiempo de fase</th>
+                    <th scope="col">Plan (Horas)</th>
+                    <th scope="col">Real (Horas)</th>
+                    <th scope="col">A la fecha (dia)</th>
+                    <th scope="col">% A la fecha</th>
+                  </tr>
+                </thead>
+            
+                <tbody>
+                  <tr>
+                    <th scope="row">Planeacion</th>
+                    <td>
+                      <input class="form-control" type="number" name="PlanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="RealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="fecha" placeholder="fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Porcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Diseño</th>
+                    <td>
+                      <input class="form-control" type="number" name="DplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="DrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="Dfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Dporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <th scope="row">Codificación</th>
+                    <td>
+                      <input class="form-control" type="number" name="CplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="CrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="Cfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Cporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Prueba</th>
+                    <td>
+                      <input class="form-control" type="number" name="PplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="PrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="Pfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Pporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">PostMortem</th>
+                    <td>
+                      <input class="form-control" type="number" name="PMplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="PMrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="PMfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="PMporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Total</th>
+                    <td>
+                      <input class="form-control" type="number" name="TplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="TrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="Tfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Tporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                     </tbody>                                 
+              </table>         
+                         
+           
+            
+            
             <button class="btn btn-primary offset-md-5" type="submit">
               Guardar 
             </button>
