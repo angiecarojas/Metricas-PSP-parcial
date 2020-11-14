@@ -25,7 +25,19 @@ const TaskSchema = Schema({
   TplanHoras:Number,
   TrealHoras:Number,
   Tfecha:Date,
-  Tporcentaje:Number
+  Tporcentaje:Number,
+  CoplanHoras:Number,
+  CorealHoras:Number,
+  Cofecha:Date,
+  Coporcentaje:Number,
+  DDplanHoras:Number,
+  DDrealHoras:Number,
+  DDfecha:Date,
+  DDporcentaje:Number,
+  TDplanHoras:Number,
+  TDrealHoras:Number,
+  TDfecha:Date,
+  TDporcentaje:Number
 });
 
 module.exports = mongoose.model('tasks', TaskSchema);
