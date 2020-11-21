@@ -7,6 +7,7 @@
   <div class="row">
     <!--FORM-->
       <div class="card">
+        <h1 class="text-center">Inicial</h1>
         <div class="card-body">
           <form action="/add" method="post">
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
@@ -156,107 +157,375 @@
         </div>
       </div>
     </div>
-
-
-    <!-- LIST -->
-    <div class="col-md-27">
-      <table class="table table-striped">
-        <thead>
-          <tr>    
-            <th>N</th>        
-            <th>Plan (Horas)</th>
-            <th>Real (Horas)</th>
-            <th>A la fecha (dia)</th>
-            <th>% A la fecha</th>
-            <th>Operation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% for(var i=0; i < tasks.length; i++) { %>
-            <tr>
-              <td><%= i + 1%></td>
-              <td><%= tasks[i].PlanHoras %></td>
-              <td><%= tasks[i].RealHoras %></td>
-              <td><%= tasks[i].fecha %></td>
-              <td><%= tasks[i].Porcentaje %></td>
-               <!--<td><strong><%= tasks[i].Porcentaje %></strong></td>-->
-              <!--Diseño--><!--
-              <td><%= tasks[i].DplanHoras %></td>
-              <td><%= tasks[i].DrealHoras %></td>
-              <td><%= tasks[i].Dfecha %></td>
-              <td><%= tasks[i].Dporcentaje %></td>-->
-              <!--Codificacion--><!--
-              <td><%= tasks[i].CplanHoras %></td>
-              <td><%= tasks[i].CrealHoras %></td>
-              <td><%= tasks[i].Cfecha %></td>
-              <td><%= tasks[i].Cporcentaje %></td>-->
-              <!--Prueba--><!--
-              <td><%= tasks[i].PplanHoras %></td>
-              <td><%= tasks[i].PrealHoras %></td>
-              <td><%= tasks[i].Pfecha %></td>
-              <td><%= tasks[i].Pporcentaje %></td>-->
-              <!--PostMortem--><!--
-              <td><%= tasks[i].PMplanHoras %></td>
-              <td><%= tasks[i].PMrealHoras %></td>
-              <td><%= tasks[i].PMfecha %></td>
-              <td><%= tasks[i].PMporcentaje %></td>-->
-              <!--Total--><!--
-              <td><%= tasks[i].TplanHoras %></td>
-              <td><%= tasks[i].TrealHoras %></td>
-              <td><%= tasks[i].Tfecha %></td>
-              <td><%= tasks[i].Tporcentaje %></td>-->
-              <td>
-                <a
-                
-                <a href="/delete/<%= tasks[i]._id %>"
-                  class="btn btn-danger">
-                  Borrar
-                </a>
-                <a href="/edit/<%= tasks[i]._id %>" class="btn btn-info">
-                  Editar
-                </a>
-              </td>
-            </tr>
-          <% } %>
-        </tbody>
-      </table>
-    </div>
   </div>
-  
-  <div class="row">
-                 
-    <div class="col">
-      <div class="text-center">
-        <a href="./Tables/eliminados.ejs">
-          <button type="button" class="btn btn-outline-dark">
-        
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-            </svg>
-
-          </button>
-        </a>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="text-center">
-        <a href="./Tables/eingresados.ejs">
-          <button type="button" class="btn btn-outline-dark">
-        
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-            </svg>
-
-          </button>
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-
 </div>
-<div class="text-center">
-                <button  class="btn btn-info offset-md"  type="submit" onClick="printDiv('print-area')">Imprimir</button>
-              </div>
+
+
+
+<!-- 2 -->
+
+
+
+<div class="container">
+  <div class="row">
+    <!--FORM-->
+      <div class="card">
+        <h1 class="text-center">Errores Ingresados</h1>
+        <div class="card-body">
+          <form action="/add" method="post">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div id="print-area">  
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Tiempo de fase</th>
+                    <th scope="col">Plan (Horas)</th>
+                    <th scope="col">Real (Horas)</th>
+                    <th scope="col">A la fecha (dia)</th>
+                    <th scope="col">% A la fecha</th>
+                  </tr>
+                </thead>
+            
+                <tbody>
+                  <tr>
+                    <th scope="row">Planeacion</th>
+                    <td>
+                      <input class="form-control" type="number" name="PlanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="RealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="fecha" placeholder="fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Porcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Diseño</th>
+                    <td>
+                      <input class="form-control" type="number" name="DplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="DrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="Dfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Dporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <th scope="row">Codificación</th>
+                    <td>
+                      <input class="form-control" type="number" name="CplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="CrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="Cfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Cporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Prueba</th>
+                    <td>
+                      <input class="form-control" type="number" name="PplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="PrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="Pfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Pporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Compilacion</th>
+                    <td>
+                      <input class="form-control" type="number" name="PMplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="PMrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="PMfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="PMporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Total Desarrollo</th>
+                    <td>
+                      <input class="form-control" type="number" name="TplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="TrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="Tfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Tporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                     </tbody>                                      
+              </table>         
+                          
+            </div>
+            <button class="btn btn-info offset-md-5"  type="submit">
+              Guardar
+            </button>       
+                            
+            </form>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    
+  </div>
+</div>
+
+<!--3-->
+
+<div class="container">
+  <div class="row">
+    <!--FORM-->
+      <div class="card">
+        <h1 class="text-center">Errores Eliminados</h1>
+        <div class="card-body">
+          <form action="/add" method="post">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div id="print-area">  
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Tiempo de fase</th>
+                    <th scope="col">Plan (Horas)</th>
+                    <th scope="col">Real (Horas)</th>
+                    <th scope="col">A la fecha (dia)</th>
+                    <th scope="col">% A la fecha</th>
+                  </tr>
+                </thead>
+            
+                <tbody>
+                  <tr>
+                    <th scope="row">Planeacion</th>
+                    <td>
+                      <input class="form-control" type="number" name="PlanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="RealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="fecha" placeholder="fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Porcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Diseño</th>
+                    <td>
+                      <input class="form-control" type="number" name="DplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="DrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="Dfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Dporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <th scope="row">Codificación</th>
+                    <td>
+                      <input class="form-control" type="number" name="CplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="CrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="Cfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Cporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Prueba</th>
+                    <td>
+                      <input class="form-control" type="number" name="PplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="PrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="Pfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Pporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Total Desarrollo</th>
+                    <td>
+                      <input class="form-control" type="number" name="PMplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="PMrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="PMfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="PMporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Despues del desarrollo</th>
+                    <td>
+                      <input class="form-control" type="number" name="TplanHoras" placeholder="PlanHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="TrealHoras" placeholder="RealHoras">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="date" name="Tfecha" placeholder="Fecha">
+                      <div class="validate"></div>
+                    </td>
+                    <td>
+                      <input class="form-control" type="number" name="Tporcentaje" placeholder="Porcentaje">
+                      <div class="validate"></div>
+                    </td>
+                  </tr>
+
+                     </tbody>                                 
+              </table>         
+                          
+            </div>
+            <button class="btn btn-info offset-md-5"  type="submit">
+              Guardar
+            </button>       
+                            
+            </form>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    
+  </div>
+</div>
+
+<div class="container">
+<!-- LIST -->
+<div class="col-md-27">
+  <table class="table table-striped">
+    <thead>
+      <tr>    
+        <th>N</th>        
+        <th>Plan (Horas)</th>
+        <th>Real (Horas)</th>
+        <th>A la fecha (dia)</th>
+        <th>% A la fecha</th>
+        <th>Operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(var i=0; i < tasks.length; i++) { %>
+        <tr>
+          <td><%= i + 1%></td>
+          <td><%= tasks[i].PlanHoras %></td>
+          <td><%= tasks[i].RealHoras %></td>
+          <td><%= tasks[i].fecha %></td>
+          <td><%= tasks[i].Porcentaje %></td>
+           <!--<td><strong><%= tasks[i].Porcentaje %></strong></td>-->
+          
+          <td>
+            <a
+            
+            <a href="/delete/<%= tasks[i]._id %>"
+              class="btn btn-danger">
+              Borrar
+            </a>
+            <a href="/edit/<%= tasks[i]._id %>" class="btn btn-info">
+              Editar
+            </a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+</div>
